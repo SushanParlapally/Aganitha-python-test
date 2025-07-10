@@ -1,22 +1,19 @@
-[project]
-name = "pubmed-paper-fetcher"
+[tool.poetry]
+name = "pubmed-paper-fetcher-xuyhan07-test01"
 version = "0.1.0"
 description = "Fetch PubMed papers with pharma affiliations"
-authors = [
-    {name = "Xuyhan07"}
-]
-license = {text = "MIT"}
+authors = ["Xuyhan07 <youremail@example.com>"]
+license = "MIT"
 readme = "README.md"
-requires-python = "^3.10"
-dependencies = [
-    "requests (>=2.32.4,<3.0.0)",
-    "xmltodict (>=0.14.2,<0.15.0)",
-    "pydantic (>=2.11.7,<3.0.0)",
-    "typer (>=0.16.0,<0.17.0)",
-    "rich (>=14.0.0,<15.0.0)"
-]
+packages = [{ include = "pubmed_paper_fetcher" }]
 
-[tool.poetry]
+[tool.poetry.dependencies]
+python = ">=3.10"
+requests = ">=2.32.4,<3.0.0"
+xmltodict = ">=0.14.2,<0.15.0"
+pydantic = ">=2.11.7,<3.0.0"
+typer = ">=0.16.0,<0.17.0"
+rich = ">=14.0.0,<15.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.1"
@@ -27,5 +24,4 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-get-papers-list = "cli:app"
-
+get-papers-list = "pubmed_paper_fetcher.cli:app"
